@@ -1,17 +1,21 @@
 # Instructions
 
 ## dependencies
- #### @babel/core
- #### @babel/preset-env
- #### @babel/preset-react
- #### babel-loader
- #### react
- #### react-dom
- #### react-hot-loader"
- #### webpack
- #### webpack-cli
- #### webpack-dev-server
-
+`
+ @babel/core
+ @babel/preset-env
+ @babel/preset-react
+ babel-loader
+ react
+ react-dom
+ react-hot-loader"
+ webpack
+ webpack-cli
+ webpack-dev-server
+ bootstrap
+ css-loader
+ style-loader
+`
 
 ## install
 
