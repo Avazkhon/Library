@@ -12,7 +12,7 @@ function getRequest (text , callback) {
     }
   }
 
-   xhr.send(null);
+   xhr.send();
 }
 
 export default getRequest 
