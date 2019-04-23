@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles/styleApp.css';
+import './styles/CartMODS.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header';
@@ -13,28 +14,21 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      logIn: false,
-      user: {
-        nickname: "",
-        password: ""
-      }
+      searchText: "",
+      array: []
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
-    this.handleGetRequest= this.handleGetRequest.bind(this);
+    this.handleGetRequest = this.handleGetRequest.bind(this);
+    this.handleChangeSearchText = this.handleChangeSearchText.bind(this);
   }
 
-
-  handleSubmit() {
-  	this.setState({logIn: !this.state.logIn})
-  }
-
-
+  // it is handle not active
   handleChangeFormUser(e) {
     let name = e.target.name;
     let value = e.target.value
     console.log(e.target.name)
+
     this.setState((state)=>{
       state.user[name] = value
     })
@@ -42,7 +36,21 @@ class App extends React.Component {
 
   // button search 
   handleGetRequest() {
-    getRequest("text", (array)=>{console.log(array)})
+    getRequest(this.state.searchText, (obj)=>{
+      let array = obj.nyplAPI.response.result;
+
+      this.setState({array: array})
+    })
+
+  }
+
+  handleChangeSearchText (e) {
+    let text = e.target.value;
+
+    this.setState((item)=>{
+      // text search default "cats"
+      item.searchText = text;
+    })
   }
 
 
@@ -52,12 +60,14 @@ class App extends React.Component {
   		<Header
         obj={this.state.logIn}
         handleGetRequest={this.handleGetRequest}
-
+        handleChangeSearchText={this.handleChangeSearchText}
       />
+
   		<Content
   		  obj={this.state}
-  		  handleSubmit={this.handleSubmit}
-        handleChangeFormUser={this.handleChangeFormUser}  />
+        handleChangeFormUser={this.handleChangeFormUser} 
+      />
+
   	  </div>
   	)
   }

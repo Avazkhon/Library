@@ -1,9 +1,11 @@
+
 function getRequest (text , callback) {
   const xhr = new XMLHttpRequest();
-  const url = 'http://api.repo.nypl.org/api/v1/items/search?q=cats&publicDomainOnly=true';
+  const url = `/api/v1/items/search.json?q=${text? text : "cats"}`;
 
   xhr.open('GET', url);
-  xhr.setRequestHeader('Authorization', 'Token token=qqcvhrm19752modk');
+  // if you activate will always be an authentication request
+  // xhr.setRequestHeader('Authorization', 'Token token=qqcvhrm19752modk');
 
   xhr.onreadystatechange = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
@@ -12,7 +14,7 @@ function getRequest (text , callback) {
     }
   }
 
-   xhr.send(null);
+   xhr.send();
 }
 
 export default getRequest 

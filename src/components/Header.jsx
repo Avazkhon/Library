@@ -2,8 +2,8 @@ import React from 'react';
 
 function Header (props) {
 	let obj = {
-		logIn: props.obj,
-		handleGetRequest: props.handleGetRequest
+		handleGetRequest: props.handleGetRequest,
+    handleChangeSearchText: props.handleChangeSearchText
 	}
 
   return (
@@ -20,12 +20,9 @@ function Header (props) {
           <li className="nav-item active">
            <input className="btn btn-primary"  type="button" value="Home" />
           </li>
-		    {obj.logIn ? null : <li className="nav-item active">
-		    <input className="btn btn-success"  type="button" value="log in" />
-          </li>}
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={obj.handleChangeSearchText}/>
           <input type= "button" value="Search" className="btn btn-outline-success my-2 my-sm-0" onClick={obj.handleGetRequest} />
         </form>
 	  </div>

@@ -1,23 +1,28 @@
 import React from 'react';
 
-import FormAuthorization from './contentcomponents/formAuthorization'
+import FormAuthorization from './contentComponents/formAuthorization';
+import CartMODS from './contentComponents/CartMODS'
 
 function Content (props) {
   let obj = {
-	submit: props.handleSubmit,
-	handleChangeFormUser: props.handleChangeFormUser,
-	user: {
-	  nickname: props.obj.user.nickname,
-	  password: props.obj.user.password	
-	}
+  	submit: props.handleSubmit,
+  	handleChangeFormUser: props.handleChangeFormUser,
+    array: [
+      {
+        apiItemDetailURL: "",
+        apiItemURL: "",
+        apiUri: "",
+        itemLink: "",
+        rightsStatementURI: ""
+      }
+    ]
   }
 
    return (
     <div className="content text-center">
-  	  <FormAuthorization obj={props} />
+  	  <CartMODS array={props.obj.array}/>
   	</div>
   	)
   }
-
 
 export default Content

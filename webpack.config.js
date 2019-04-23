@@ -29,6 +29,10 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
-    port: 7777
+    host: "127.0.0.1",
+    port: 7777,
+    proxy: {
+      '/api': 'http://api.repo.nypl.org',
+    }
   }
 };
