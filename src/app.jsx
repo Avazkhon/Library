@@ -10,12 +10,14 @@ import Content from './components/Content';
 import getRequest from './xhrComponents/getRequest';
 import getRequestItemsMods from './xhrComponents/getRequestItemsMods';
 
+
 class App extends React.Component {
   constructor (props) {
     super(props);
 
     this.state = {
       searchText: "",
+      stateComponents: "",
       array: []
     }
 
@@ -28,7 +30,6 @@ class App extends React.Component {
   handleChangeFormUser(e) {
     let name = e.target.name;
     let value = e.target.value
-    console.log(e.target.name)
 
     this.setState((state)=>{
       state.user[name] = value
@@ -40,8 +41,9 @@ class App extends React.Component {
     getRequest(this.state.searchText, (obj)=>{
       let array = obj.nyplAPI.response.result;
 
-      this.setState({array: array})
+      this.setState({array: array, stateComponents: "CartMODS"})
     })
+    console.log(this.state.stateComponents)
   }
 
   handleChangeSearchText (e) {
@@ -55,7 +57,8 @@ class App extends React.Component {
 
   handleGetRequestItemsMods (uuid) {
     getRequestItemsMods(uuid, (mods)=>{
-      console.log("mods", mods)
+      console.log("mods", mods);
+      this.setState({stateComponents: "ComponentItemsMods"})
     })
   }
 
