@@ -30,3 +30,7 @@
 
 ### start SPA
 `npm start`
+
+## Change 
+
+#### new function handleGetRequestItemsMods return objects mods

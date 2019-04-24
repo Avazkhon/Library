@@ -5,8 +5,8 @@ import CartMODS from './contentComponents/CartMODS'
 
 function Content (props) {
   let obj = {
-  	submit: props.handleSubmit,
   	handleChangeFormUser: props.handleChangeFormUser,
+    handleGetRequestItemsMods: props.handleGetRequestItemsMods,
     array: [
       {
         apiItemDetailURL: "",
@@ -18,11 +18,14 @@ function Content (props) {
     ]
   }
 
-   return (
+  return (
     <div className="content text-center">
-  	  <CartMODS array={props.obj.array}/>
+  	  <CartMODS
+        array={props.obj.array}
+        handleGetRequestItemsMods={props.handleGetRequestItemsMods}
+      />
   	</div>
-  	)
-  }
+	)
+}
 
 export default Content

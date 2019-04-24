@@ -14,7 +14,7 @@ function getRequest (text , callback) {
     }
   }
 
-   xhr.send();
+  xhr.send();
 }
 
 export default getRequest 

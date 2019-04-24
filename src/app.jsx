@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Content from './components/Content';
 
-import getRequest from './xhrComponents/getRequest'
+import getRequest from './xhrComponents/getRequest';
+import getRequestItemsMods from './xhrComponents/getRequestItemsMods';
 
 class App extends React.Component {
   constructor (props) {
@@ -41,7 +42,6 @@ class App extends React.Component {
 
       this.setState({array: array})
     })
-
   }
 
   handleChangeSearchText (e) {
@@ -50,6 +50,12 @@ class App extends React.Component {
     this.setState((item)=>{
       // text search default "cats"
       item.searchText = text;
+    })
+  }
+
+  handleGetRequestItemsMods (uuid) {
+    getRequestItemsMods(uuid, (mods)=>{
+      console.log("mods", mods)
     })
   }
 
@@ -65,9 +71,9 @@ class App extends React.Component {
 
   		<Content
   		  obj={this.state}
-        handleChangeFormUser={this.handleChangeFormUser} 
+        handleChangeFormUser={this.handleChangeFormUser}
+        handleGetRequestItemsMods={this.handleGetRequestItemsMods.bind(this)}
       />
-
   	  </div>
   	)
   }
