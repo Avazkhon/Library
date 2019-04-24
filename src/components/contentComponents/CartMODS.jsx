@@ -6,7 +6,7 @@ function CartMODS (props) {
     return (
       <div className="card col-4" key={item.uuid}>
         <div className="card-body">
-          <img src="https://images.nypl.org/index.php?id=ps_rbk_675&t=f" />
+          <img src="https://images.nypl.org/index.php?id=ps_rbk_675&t=f"  alt="photo book" />
           <h5 className="card-title" onClick={props.handleGetRequestItemsMods.bind(this,  item.uuid)}>{item.title}</h5>
           <p className="card-text">{item.rightsStatement}</p>
         </div>

@@ -2,6 +2,9 @@ import React from 'react';
 
 
 function componentItemsMods (props) {
+  let ItemsMods = props.ItemsMods;
+  console.log(ItemsMods)
+
   return (
     <div className="card col-12">
       <div className="row">

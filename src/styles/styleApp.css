@@ -2,3 +2,6 @@
 	width: 90px;
 	height: 90px;
 }
+.card-title {
+	cursor: pointer;
+}

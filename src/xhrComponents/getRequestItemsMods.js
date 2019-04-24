@@ -7,8 +7,8 @@ function getRequestItemsMods (uuid , callback) {
 
   xhr.onreadystatechange = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
-      let mods = JSON.parse(xhr.response);
-      callback(mods)
+      let itemsMods = JSON.parse(xhr.response);
+      callback(itemsMods)
     }
   }
 

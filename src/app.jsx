@@ -43,7 +43,6 @@ class App extends React.Component {
 
       this.setState({array: array, stateComponents: "CartMODS"})
     })
-    console.log(this.state.stateComponents)
   }
 
   handleChangeSearchText (e) {
@@ -56,9 +55,10 @@ class App extends React.Component {
   }
 
   handleGetRequestItemsMods (uuid) {
-    getRequestItemsMods(uuid, (mods)=>{
-      console.log("mods", mods);
-      this.setState({stateComponents: "ComponentItemsMods"})
+    getRequestItemsMods(uuid, (itemsMods)=>{
+      let mods = itemsMods.nyplAPI.response;
+
+      this.setState({stateComponents: "ComponentItemsMods", ItemsMods: mods })
     })
   }
 
