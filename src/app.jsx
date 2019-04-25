@@ -58,7 +58,7 @@ class App extends React.Component {
     getRequestItemsMods(uuid, (itemsMods)=>{
       let mods = itemsMods.nyplAPI.response;
 
-      this.setState({stateComponents: "ComponentItemsMods", ItemsMods: mods })
+      this.setState({stateComponents: "ComponentItemsMods", itemsMods: mods })
     })
   }
 

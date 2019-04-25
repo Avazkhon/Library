@@ -1,9 +1,14 @@
 import React from 'react';
 
+import Genre from './componentBlock/componentGenre'
 
 function componentItemsMods (props) {
-  let ItemsMods = props.ItemsMods;
-  console.log(ItemsMods)
+  // better not to touch it :)
+  let itemsMods = {
+    title: props.itemsMods.mods.titleInfo.title.$,
+    authority: props.itemsMods.mods.name ? props.itemsMods.mods.name.authority : " ",
+    genre: props.itemsMods.mods.genre ? props.itemsMods.mods.genre : []
+  };
 
   return (
     <div className="card col-12">
@@ -15,7 +20,11 @@ function componentItemsMods (props) {
         </div>
         <div className="col-4">
           <ul className="list-group list-group-flush">
-            <li className="list-group-item">item</li>
+            <h4>Info</h4>
+            <li className="list-group-item">
+              <h5>title: {itemsMods.title}</h5>
+            </li>
+            <Genre genre={itemsMods.genre} />
           </ul>
         </div>
         <div className="col-4">
@@ -29,5 +38,14 @@ function componentItemsMods (props) {
     </div>
   )
 }
+
+// componentItemsMods.defaultProps = {
+//   itemsMods: {
+//     title: "",
+//     authority: "",
+//     genre: []
+//   }
+// }
+
 
 export default componentItemsMods

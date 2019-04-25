@@ -10,7 +10,7 @@ function Content (props) {
     handleGetRequestItemsMods: props.handleGetRequestItemsMods,
     stateComponents: props.obj.stateComponents,
     array: props.obj.array,
-    ItemsMods: props.obj.ItemsMods
+    itemsMods: props.obj.itemsMods
   }
 
   if(obj.stateComponents == "CartMODS") {
@@ -26,7 +26,7 @@ function Content (props) {
 
   if(obj.stateComponents == "ComponentItemsMods") {
     return (
-      <ComponentItemsMods ItemsMods={obj.ItemsMods} />
+      <ComponentItemsMods itemsMods={obj.itemsMods} />
     )
   }
 

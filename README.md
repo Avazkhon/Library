@@ -1,5 +1,8 @@
 # Instructions
 
+*These are book search applications from the New York Public Library API.
+In the search bar, see the interesting content and click the search button. In the list select one of them.*
+
 ## dependencies
 `
  @babel/core
@@ -33,4 +36,4 @@
 
 ## Change 
 
-#### new function handleGetRequestItemsMods return objects mods
+#### create componentGenre.
