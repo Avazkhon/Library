@@ -3,9 +3,11 @@ import React from 'react';
 import Genre from './componentBlock/componentGenre'
 
 function componentItemsMods (props) {
+  
   // better not to touch it :)
   let itemsMods = {
-    title: props.itemsMods.mods.titleInfo.title.$,
+    imageID: props.itemsMods.imm_captures.capture.imageID ? props.itemsMods.imm_captures.capture.imageID.$ : props.itemsMods.imm_captures.capture[0].imageID.$,
+    title: props.itemsMods.mods.titleInfo.title ? props.itemsMods.mods.titleInfo.title.$ : props.itemsMods.mods.titleInfo[0].title.$,
     authority: props.itemsMods.mods.name ? props.itemsMods.mods.name.authority : " ",
     genre: props.itemsMods.mods.genre ? props.itemsMods.mods.genre : []
   };
@@ -14,7 +16,7 @@ function componentItemsMods (props) {
     <div className="card col-12">
       <div className="row">
         <div className="card-body col-4">
-          <img src="https://images.nypl.org/index.php?id=ps_rbk_675&t=f" />
+          <img src={`https://images.nypl.org/index.php?id=${itemsMods.imageID}&t=r`} />
           <h5 className="card-title"></h5>
           <p className="card-text">ComponentItemsMods</p>
         </div>

@@ -6,12 +6,11 @@ function CartMODS (props) {
     return (
       <div className="card col-4" key={item.uuid}>
         <div className="card-body">
-          <img src="https://images.nypl.org/index.php?id=ps_rbk_675&t=f"  alt="photo book" />
+          <img alt="photo book"  src={`https://images.nypl.org/index.php?id=${item.imageID}&t=t`} />
           <h5 className="card-title" onClick={props.handleGetRequestItemsMods.bind(this,  item.uuid)}>{item.title}</h5>
           <p className="card-text">{item.rightsStatement}</p>
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">imageID: {item.imageID}</li>
           <li className="list-group-item">uuid: {item.uuid}</li>
           <li className="list-group-item">dateDigitized: {item.dateDigitized}</li>
         </ul>

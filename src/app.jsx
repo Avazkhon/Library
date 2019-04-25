@@ -53,7 +53,7 @@ class App extends React.Component {
       item.searchText = text;
     })
   }
-
+  
   handleGetRequestItemsMods (uuid) {
     getRequestItemsMods(uuid, (itemsMods)=>{
       let mods = itemsMods.nyplAPI.response;
