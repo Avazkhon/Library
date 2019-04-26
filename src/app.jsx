@@ -18,7 +18,8 @@ class App extends React.Component {
     this.state = {
       searchText: "",
       stateComponents: "",
-      array: []
+      array: [],
+      Messages: ""
     }
 
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
@@ -40,8 +41,17 @@ class App extends React.Component {
   handleGetRequest() {
     getRequest(this.state.searchText, (obj)=>{
       let array = obj.nyplAPI.response.result;
-
-      this.setState({array: array, stateComponents: "CartMODS"})
+      
+      // check for correct answer
+      if(array !== undefined) {
+        this.setState({array: array, stateComponents: "CartMODS"})
+      }
+      else {
+        this.setState({Messages: "Your search returned no results!"})
+        setTimeout(()=>{
+          this.setState({Messages: ""})
+        }, 3000)
+      }
     })
   }
 
@@ -66,17 +76,17 @@ class App extends React.Component {
   render() {
   	return (
   	  <div className="app text-center">
-  		<Header
-        obj={this.state.logIn}
-        handleGetRequest={this.handleGetRequest}
-        handleChangeSearchText={this.handleChangeSearchText}
-      />
+    		<Header
+          Messages={this.state.Messages}
+          handleGetRequest={this.handleGetRequest}
+          handleChangeSearchText={this.handleChangeSearchText}
+        />
 
-  		<Content
-  		  obj={this.state}
-        handleChangeFormUser={this.handleChangeFormUser}
-        handleGetRequestItemsMods={this.handleGetRequestItemsMods.bind(this)}
-      />
+    		<Content
+    		  obj={this.state}
+          handleChangeFormUser={this.handleChangeFormUser}
+          handleGetRequestItemsMods={this.handleGetRequestItemsMods.bind(this)}
+        />
   	  </div>
   	)
   }
