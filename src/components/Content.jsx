@@ -26,7 +26,9 @@ function Content (props) {
 
   if(obj.stateComponents == "ComponentItemsMods") {
     return (
-      <ComponentItemsMods itemsMods={obj.itemsMods} />
+      <div className="content text-center">
+        <ComponentItemsMods itemsMods={obj.itemsMods} />
+      </div>
     )
   }
 
