@@ -36,4 +36,6 @@ In the search bar, see the interesting content and click the search button. In t
 
 ## Change 
 
-#### create componentGenre.
+1. Add background
+1. Add messenger
+1. Check for correct answer API
