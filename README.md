@@ -18,6 +18,7 @@ In the search bar, see the interesting content and click the search button. In t
  bootstrap
  css-loader
  style-loader
+ eslint - airbnb
 `
 
 ## install

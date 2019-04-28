@@ -12,83 +12,81 @@ import getRequestItemsMods from './xhrComponents/getRequestItemsMods';
 
 
 class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      searchText: "",
-      stateComponents: "",
+      searchText: '',
+      stateComponents: '',
       array: [],
-      Messages: ""
+      messages: '',
     }
 
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
     this.handleGetRequest = this.handleGetRequest.bind(this);
     this.handleChangeSearchText = this.handleChangeSearchText.bind(this);
+    this.handleGetRequestItemsMods = this.handleGetRequestItemsMods.bind(this);
   }
 
   // it is handle not active
   handleChangeFormUser(e) {
     let name = e.target.name;
-    let value = e.target.value
+    let value = e.target.value;
 
-    this.setState((state)=>{
-      state.user[name] = value
-    })
+    this.setState((state) => {
+      state.user[name] = value;
+    });
   }
 
-  // button search 
+  // button search ;
   handleGetRequest() {
-    getRequest(this.state.searchText, (obj)=>{
+    getRequest(this.state.searchText, (obj) => {
       let array = obj.nyplAPI.response.result;
-      
+
       // check for correct answer
-      if(array !== undefined) {
-        this.setState({array: array, stateComponents: "CartMODS"})
+      if (array !== undefined) {
+        this.setState({ array: array, stateComponents: 'CartMODS' });
       }
       else {
-        this.setState({Messages: "Your search returned no results!"})
-        setTimeout(()=>{
-          this.setState({Messages: ""})
-        }, 3000)
+        this.setState({ messages: 'Your search returned no results!' });
+        setTimeout(() => {
+          this.setState({ messages: '' });
+        }, 3000);
       }
-    })
+    });
   }
 
-  handleChangeSearchText (e) {
+  handleChangeSearchText(e) {
     let text = e.target.value;
 
-    this.setState((item)=>{
-      // text search default "cats"
+    this.setState((item) => {
+      // text search default "cats";
       item.searchText = text;
-    })
+    });
   }
-  
-  handleGetRequestItemsMods (uuid) {
-    getRequestItemsMods(uuid, (itemsMods)=>{
+
+  handleGetRequestItemsMods(uuid) {
+    getRequestItemsMods(uuid, (itemsMods) => {
       let mods = itemsMods.nyplAPI.response;
 
-      this.setState({stateComponents: "ComponentItemsMods", itemsMods: mods })
-    })
+      this.setState({ stateComponents: 'ComponentItemsMods', itemsMods: mods });
+    });
   }
 
-
   render() {
-  	return (
-  	  <div className="app text-center">
-    		<Header
-          Messages={this.state.Messages}
+    return (
+      <div className="app text-center">
+        <Header
+          messages={this.state.messages}
           handleGetRequest={this.handleGetRequest}
           handleChangeSearchText={this.handleChangeSearchText}
         />
-
-    		<Content
-    		  obj={this.state}
+        <Content
+          obj={this.state}
           handleChangeFormUser={this.handleChangeFormUser}
-          handleGetRequestItemsMods={this.handleGetRequestItemsMods.bind(this)}
+          handleGetRequestItemsMods={this.handleGetRequestItemsMods}
         />
-  	  </div>
-  	)
+      </div>);
   }
 }
 

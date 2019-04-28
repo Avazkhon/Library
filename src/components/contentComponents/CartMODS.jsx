@@ -3,8 +3,8 @@ import React from 'react';
 import RightsStatement from './componentBlock/RightsStatement'
 
 
-function CartMODS (props) {
-  let obj = props.array.map((item)=>{
+function CartMODS(props) {
+  let obj = props.array.map((item) => {
     return (
       <div className="card col-12 row" key={item.uuid}>
         <div className="card-body col-4">
@@ -25,15 +25,13 @@ function CartMODS (props) {
           <a className="card-link" href={item.rightsStatementURI} >rightsStatementURI</a>
           <a className="card-link" href={item.itemLink} >item.itemLink</a>
         </div>
-      </div>
-    )
-  })
-  
+      </div>);
+  });
   return (
     <div className="row">
       {obj}
     </div>
-  )
+  );
 }
 
 export default CartMODS

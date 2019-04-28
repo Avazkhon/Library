@@ -1,9 +1,9 @@
-import React,  {Propstype}from 'react';
+import React, { Propstype } from 'react';
 
-function RightsStatement (props) {
+function RightsStatement(props) {
   return (
     <p className="card-text">{props.rightsStatement}</p>
-  )
+  );
 }
 
-export default RightsStatement
+export default RightsStatement;
