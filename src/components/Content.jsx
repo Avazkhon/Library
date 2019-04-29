@@ -13,6 +13,7 @@ function Content(props) {
     array: props.obj.array,
     itemsMods: props.obj.itemsMods,
     user: props.obj.user,
+    loginStatus: props.obj.loginStatus,
   };
 
   if (obj.stateComponents === 'CartMODS') {
@@ -34,12 +35,18 @@ function Content(props) {
     );
   }
 
+  if(!obj.loginStatus) {
+    return (
+      <FormAuthorization
+        user={obj.user}
+        handleSubmit={obj.handleSubmit}
+        handleChangeFormUser={obj.handleChangeFormUser}
+      />
+    );
+  }
+
   return (
-    <FormAuthorization
-      user={obj.user}
-      handleSubmit={obj.handleSubmit}
-      handleChangeFormUser={obj.handleChangeFormUser}
-    />
+    <div className="content text-center"></div>
   );
 }
 

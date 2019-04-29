@@ -28,11 +28,17 @@ class App extends React.Component {
       },
     };
 
+    this.handleExitAndeLoginStatus = this.handleExitAndeLoginStatus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
     this.handleGetRequest = this.handleGetRequest.bind(this);
     this.handleChangeSearchText = this.handleChangeSearchText.bind(this);
     this.handleGetRequestItemsMods = this.handleGetRequestItemsMods.bind(this);
+  }
+
+  handleExitAndeLoginStatus() {
+    this.setState({ loginStatus: false });
+    localStorage.clear();
   }
 
   handleSubmit() {
@@ -100,9 +106,11 @@ class App extends React.Component {
     return (
       <div className="app text-center">
         <Header
+          loginStatus={this.state.loginStatus}
           messages={this.state.messages}
           handleGetRequest={this.handleGetRequest}
           handleChangeSearchText={this.handleChangeSearchText}
+          handleExitAndeLoginStatus={this.handleExitAndeLoginStatus}
         />
         <Content
           obj={this.state}
@@ -114,4 +122,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

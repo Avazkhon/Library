@@ -4,7 +4,9 @@ function Header(props) {
   const obj = {
     handleGetRequest: props.handleGetRequest,
     handleChangeSearchText: props.handleChangeSearchText,
+    handleExitAndeLoginStatus: props.handleExitAndeLoginStatus,
     messages: props.messages,
+    loginStatus: props.loginStatus,
   };
 
   return (
@@ -17,6 +19,11 @@ function Header(props) {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <input className="btn btn-primary" type="button" value="Home" />
+          </li>
+          <li className="nav-item active">
+            {obj.loginStatus ?
+              <input className="btn btn-primary" type="button" value="exit" onClick={obj.handleExitAndeLoginStatus} />
+              : <a href='http://api.repo.nypl.org/sign_up' target='_blank'><input className="btn btn-primary" type="button" value="regist" /> </a>}
           </li>
         </ul>
         <div className="messages">
