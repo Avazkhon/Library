@@ -1,16 +1,18 @@
 import React from 'react';
 
-// import FormAuthorization from './contentComponents/formAuthorization';
+import FormAuthorization from './contentComponents/formAuthorization';
 import CartMODS from './contentComponents/CartMODS';
 import ComponentItemsMods from './contentComponents/componentItemsMods';
 
 function Content(props) {
   const obj = {
+    handleSubmit: props.handleSubmit,
   	handleChangeFormUser: props.handleChangeFormUser,
     handleGetRequestItemsMods: props.handleGetRequestItemsMods,
     stateComponents: props.obj.stateComponents,
     array: props.obj.array,
     itemsMods: props.obj.itemsMods,
+    user: props.obj.user,
   };
 
   if (obj.stateComponents === 'CartMODS') {
@@ -33,7 +35,11 @@ function Content(props) {
   }
 
   return (
-    <div />
+    <FormAuthorization
+      user={obj.user}
+      handleSubmit={obj.handleSubmit}
+      handleChangeFormUser={obj.handleChangeFormUser}
+    />
   );
 }
 

@@ -2,11 +2,11 @@ import React from 'react';
 
 function FormAuthorization(props) {
   const obj = {
-    submit: props.obj.handleSubmit,
-    handleChangeFormUser: props.obj.handleChangeFormUser,
+    submit: props.handleSubmit,
+    handleChangeFormUser: props.handleChangeFormUser,
     user: {
-	  nickname: props.obj.obj.user.nickname,
-	  password: props.obj.obj.user.password,
+  	  nickname: props.user.nickname,
+  	  password: props.user.password,
     },
   };
 

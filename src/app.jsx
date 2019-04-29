@@ -10,6 +10,7 @@ import Content from './components/Content';
 import getRequest from './xhrComponents/getRequest';
 import getRequestItemsMods from './xhrComponents/getRequestItemsMods';
 
+const userLocalStorge = JSON.parse(localStorage.getItem('user'));
 
 class App extends React.Component {
   constructor(props) {
@@ -20,12 +21,31 @@ class App extends React.Component {
       stateComponents: '',
       array: [],
       messages: '',
-    }
+      loginStatus: userLocalStorge ? true : false,
+      user: {
+        nickname: userLocalStorge ? userLocalStorge.nickname : '',
+        password: userLocalStorge ? userLocalStorge.password : '',
+      },
+    };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
     this.handleGetRequest = this.handleGetRequest.bind(this);
     this.handleChangeSearchText = this.handleChangeSearchText.bind(this);
     this.handleGetRequestItemsMods = this.handleGetRequestItemsMods.bind(this);
+  }
+
+  handleSubmit() {
+    // eslint-disable-next-line prefer-destructuring,react/destructuring-assignment
+    const user = this.state.user;
+    const text = '';
+    getRequest({text, user}, (obj) => {
+      if (obj.nyplAPI.response.headers.code === '200') {
+        // eslint-disable-next-line no-undef
+        localStorage.setItem('user', JSON.stringify(user));
+        this.setState({ loginStatus: true });
+      }
+    });
   }
 
   // it is handle not active
@@ -40,7 +60,9 @@ class App extends React.Component {
 
   // button search ;
   handleGetRequest() {
-    getRequest(this.state.searchText, (obj) => {
+    const user = this.state.user;
+    const text = this.state.searchText;
+    getRequest({text, user}, (obj) => {
       let array = obj.nyplAPI.response.result;
 
       // check for correct answer
@@ -66,7 +88,8 @@ class App extends React.Component {
   }
 
   handleGetRequestItemsMods(uuid) {
-    getRequestItemsMods(uuid, (itemsMods) => {
+    const user = this.state.user;
+    getRequestItemsMods({ uuid, user }, (itemsMods) => {
       let mods = itemsMods.nyplAPI.response;
 
       this.setState({ stateComponents: 'ComponentItemsMods', itemsMods: mods });
@@ -83,6 +106,7 @@ class App extends React.Component {
         />
         <Content
           obj={this.state}
+          handleSubmit={this.handleSubmit}
           handleChangeFormUser={this.handleChangeFormUser}
           handleGetRequestItemsMods={this.handleGetRequestItemsMods}
         />
