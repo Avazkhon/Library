@@ -2,16 +2,25 @@ import React from 'react';
 
 import Genre from './componentBlock/componentGenre';
 
-function componentItemsMods(props) {
+function ComponentItemsMods(props) {
   // better not to touch it :)
   const itemsMods = {
-    imageID: props.itemsMods.imm_captures.capture.imageID ? props.itemsMods.imm_captures.capture.imageID.$ : props.itemsMods.imm_captures.capture[0].imageID.$,
+    imageID: props.itemsMods.imm_captures.capture.imageID ?
+     props.itemsMods.imm_captures.capture.imageID.$
+     : props.itemsMods.imm_captures.capture[0].imageID.$,
+
     title: props.itemsMods.mods.titleInfo.title ? props.itemsMods.mods.titleInfo.title.$ : props.itemsMods.mods.titleInfo[0].title.$,
     authority: props.itemsMods.mods.name ? props.itemsMods.mods.name.authority : ' ',
     genre: props.itemsMods.mods.genre ? props.itemsMods.mods.genre : [],
-    uuid: props.itemsMods.imm_captures.capture.uuid ? props.itemsMods.imm_captures.capture.uuid.$ : props.itemsMods.imm_captures.capture[0].uuid.$,
-    itemLink: props.itemsMods.root_captures.capture.itemLink ? props.itemsMods.root_captures.capture.itemLink.$ : props.itemsMods.root_captures.capture[0].itemLink.$,
-    rightsStatementURI: props.itemsMods.sibling_captures.capture.rightsStatementURI ? props.itemsMods.sibling_captures.capture.rightsStatementURI.$ : props.itemsMods.sibling_captures.capture[0].rightsStatementURI.$,
+
+    uuid: props.itemsMods.imm_captures.capture.uuid ?
+    props.itemsMods.imm_captures.capture.uuid.$ : props.itemsMods.imm_captures.capture[0].uuid.$,
+
+    itemLink: props.itemsMods.root_captures.capture.itemLink ?
+    props.itemsMods.root_captures.capture.itemLink.$ : props.itemsMods.root_captures.capture[0].itemLink.$,
+
+    rightsStatementURI: props.itemsMods.sibling_captures.capture.rightsStatementURI ?
+    props.itemsMods.sibling_captures.capture.rightsStatementURI.$ : props.itemsMods.sibling_captures.capture[0].rightsStatementURI.$,
   };
 
   return (
@@ -54,4 +63,4 @@ function componentItemsMods(props) {
   );
 }
 
-export default componentItemsMods;
+export default ComponentItemsMods;
