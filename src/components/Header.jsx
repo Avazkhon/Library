@@ -21,18 +21,21 @@ function Header(props) {
             <input className="btn btn-primary" type="button" value="Home" />
           </li>
           <li className="nav-item active">
+        {/* show or not buttom exit || registration. Conditional operator '?' */ }
             {obj.loginStatus ?
               <input className="btn btn-primary" type="button" value="exit" onClick={obj.handleExitAndeLoginStatus} />
-              : <a href='http://api.repo.nypl.org/sign_up' target='_blank'><input className="btn btn-primary" type="button" value="regist" /> </a>}
+              : <a href='http://api.repo.nypl.org/sign_up' target='_blank'><input className="btn btn-primary" type="button" value="registration" /> </a>}
           </li>
         </ul>
         <div className="messages">
           <h3>{obj.messages}</h3>
         </div>
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={obj.handleChangeSearchText} />
-          <input type="button" value="Search" className="btn btn-outline-success my-2 my-sm-0" onClick={obj.handleGetRequest} />
-        </form>
+      {/* show or not search form. Conditional operator '?' */ }
+        { obj.loginStatus ?
+          <form className="form-inline my-2 my-lg-0">
+            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={obj.handleChangeSearchText} />
+            <input type="button" value="Search" className="btn btn-outline-success my-2 my-sm-0" onClick={obj.handleGetRequest} />
+         </form> : null }
       </div>
     </nav>
   );
