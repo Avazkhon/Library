@@ -28,12 +28,17 @@ class App extends React.Component {
       },
     };
 
+    this.handleStateComponents = this.handleStateComponents.bind(this)
     this.handleExitAndeLoginStatus = this.handleExitAndeLoginStatus.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChangeFormUser = this.handleChangeFormUser.bind(this);
     this.handleGetRequest = this.handleGetRequest.bind(this);
     this.handleChangeSearchText = this.handleChangeSearchText.bind(this);
     this.handleGetRequestItemsMods = this.handleGetRequestItemsMods.bind(this);
+  }
+
+  handleStateComponents() {
+    this.setState({stateComponents: 'main'})
   }
 
   handleExitAndeLoginStatus() {
@@ -111,6 +116,7 @@ class App extends React.Component {
           handleGetRequest={this.handleGetRequest}
           handleChangeSearchText={this.handleChangeSearchText}
           handleExitAndeLoginStatus={this.handleExitAndeLoginStatus}
+          handleStateComponents = {this.handleStateComponents}
         />
         <Content
           obj={this.state}

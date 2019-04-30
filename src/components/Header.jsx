@@ -5,6 +5,7 @@ function Header(props) {
     handleGetRequest: props.handleGetRequest,
     handleChangeSearchText: props.handleChangeSearchText,
     handleExitAndeLoginStatus: props.handleExitAndeLoginStatus,
+    handleStateComponents: props.handleStateComponents,
     messages: props.messages,
     loginStatus: props.loginStatus,
   };
@@ -18,7 +19,7 @@ function Header(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <input className="btn btn-primary" type="button" value="Home" />
+            <input className="btn btn-primary" type="button" value="Home" onClick={obj.handleStateComponents}/>
           </li>
           <li className="nav-item active">
         {/* show or not buttom exit || registration. Conditional operator '?' */ }
