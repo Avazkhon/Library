@@ -11,12 +11,12 @@ function Header(props) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a className="navbar-brand" href="#">
         <img className="logoMain" src="https://avatars3.githubusercontent.com/u/944604?s=200&v=4" alt="logo" />
       </a>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="collapse navbar-collapse navbarSupportedContent " id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <input className="btn btn-primary" type="button" value="Home" onClick={obj.handleStateComponents}/>

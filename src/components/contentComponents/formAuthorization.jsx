@@ -11,9 +11,8 @@ function FormAuthorization(props) {
   };
 
   return (
-    <form>
+    <form className="mx-auto w-50 formAuthorization">
       <div className="form-group">
-        <label htmlFor="nickname">Nickname</label>
         <input
           type="text"
           name="nickname"
@@ -25,7 +24,6 @@ function FormAuthorization(props) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputPassword1">Password</label>
         <input
           type="password"
           name="password"

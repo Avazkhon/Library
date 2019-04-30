@@ -10,9 +10,17 @@ body {
 	color: #28a745;
 }
 
+.navbarSupportedContent li {
+	margin-left: 7px;
+}
+
 .logoMain {
 	width: 90px;
 	height: 90px;
+}
+
+.formAuthorization {
+	margin-top: 250px;
 }
 
 .card-title {
