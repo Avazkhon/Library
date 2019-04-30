@@ -73,12 +73,16 @@ class App extends React.Component {
   handleGetRequest() {
     const user = this.state.user;
     const text = this.state.searchText;
+    this.setState({ messages:'loading...' });
     getRequest({text, user}, (obj) => {
       let array = obj.nyplAPI.response.result;
 
       // check for correct answer
       if (array !== undefined) {
-        this.setState({ array: array, stateComponents: 'CartMODS' });
+        this.setState({ array: array, stateComponents: 'CartMODS'});
+        setTimeout(() => {
+          this.setState({ messages: '' });
+        }, 3000);
       }
       else {
         this.setState({ messages: 'Your search returned no results!' });
