@@ -1,5 +1,8 @@
-body {
-	background-image: url(https://s1.funon.cc/img/orig/201701/16/587d0b4fd9d0d.jpg);
+
+.backgroundContent {
+    background-image: url(https://s1.funon.cc/img/orig/201701/16/587d0b4fd9d0d.jpg);
+    width: 100%;
+    height: 1050px;
 }
 
 #root {
@@ -8,6 +11,18 @@ body {
 
 .messages {
 	color: #28a745;
+}
+
+#headerFix {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	opacity: .9;
+	margin-top: -110px;
+}
+
+.content {
+	margin-top: 110px; 
 }
 
 .navbarSupportedContent li {
@@ -20,9 +35,5 @@ body {
 }
 
 .formAuthorization {
-	margin-top: 250px;
-}
-
-.card-title {
-	cursor: pointer;
+	margin-top: 110px;
 }

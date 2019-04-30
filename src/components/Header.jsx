@@ -11,7 +11,7 @@ function Header(props) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav id="headerFix" className=" navbar navbar-expand-lg navbar-light">
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a className="navbar-brand" href="#">
         <img className="logoMain" src="https://avatars3.githubusercontent.com/u/944604?s=200&v=4" alt="logo" />

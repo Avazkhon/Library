@@ -46,7 +46,7 @@ function Content(props) {
   }
 
   return (
-    <div className="content text-center"></div>
+    <div className="content text-center backgroundContent"></div>
   );
 }
 

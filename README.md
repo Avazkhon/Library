@@ -1,6 +1,6 @@
 # Instructions
 
-*These are book search applications from the New York Public Library API.
+*These are book search applications from the New York Public Library API http://api.repo.nypl.org.
 In the search bar, see the interesting content and click the search button. In the list select one of them.*
 
 ## dependencies
@@ -37,6 +37,8 @@ In the search bar, see the interesting content and click the search button. In t
 
 ## Change 
 
-1. Add background
-1. Add messenger
-1. Check for correct answer API
+1. button return main.
+1. button entry and registration
+1. show search form.
+1. fixed header.
+1. adaptive background.
